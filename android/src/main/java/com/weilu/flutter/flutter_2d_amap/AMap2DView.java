@@ -142,7 +142,7 @@ public class AMap2DView implements PlatformView, MethodChannel.MethodCallHandler
             if (aMapLocation.getErrorCode() == 0) {
                 // 显示系统小蓝点
                 mListener.onLocationChanged(aMapLocation);
-                aMap.moveCamera(CameraUpdateFactory.zoomTo(18));
+                aMap.moveCamera(CameraUpdateFactory.zoomTo(17));
                 search(aMapLocation.getLatitude(), aMapLocation.getLongitude());
                 if (mLocationClient != null) {
                     mLocationClient.stopLocation();
