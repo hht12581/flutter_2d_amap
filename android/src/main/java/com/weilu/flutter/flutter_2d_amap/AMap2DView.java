@@ -91,7 +91,7 @@ public class AMap2DView implements PlatformView, MethodChannel.MethodCallHandler
     }
     
     private void setUpMap(){
-        CameraUpdateFactory.zoomTo(32);
+        //CameraUpdateFactory.zoomTo(32);
         aMap.setOnMapClickListener(this);
         // 设置定位监听
         aMap.setLocationSource(this);
@@ -142,7 +142,7 @@ public class AMap2DView implements PlatformView, MethodChannel.MethodCallHandler
             if (aMapLocation.getErrorCode() == 0) {
                 // 显示系统小蓝点
                 mListener.onLocationChanged(aMapLocation);
-                aMap.moveCamera(CameraUpdateFactory.zoomTo(16));
+                aMap.moveCamera(CameraUpdateFactory.zoomTo(18));
                 search(aMapLocation.getLatitude(), aMapLocation.getLongitude());
                 if (mLocationClient != null) {
                     mLocationClient.stopLocation();
@@ -170,7 +170,7 @@ public class AMap2DView implements PlatformView, MethodChannel.MethodCallHandler
     }
 
     private void move(double lat, double lon){
-        aMap.moveCamera(CameraUpdateFactory.zoomTo(16));
+        //aMap.moveCamera(CameraUpdateFactory.zoomTo(16));
         LatLng latLng = new LatLng(lat, lon);
         drawMarkers(latLng, BitmapDescriptorFactory.defaultMarker());
     }
@@ -253,6 +253,7 @@ public class AMap2DView implements PlatformView, MethodChannel.MethodCallHandler
                         builder.append("\"cityCode\": \"");builder.append(item.getCityCode());builder.append("\",");
                         builder.append("\"cityName\": \"");builder.append(item.getCityName());builder.append("\",");
                         builder.append("\"provinceName\": \"");builder.append(item.getProvinceName());builder.append("\",");
+                        builder.append("\"snippet\": \"");builder.append(item.getSnippet());builder.append("\",");
                         builder.append("\"title\": \"");builder.append(item.getTitle());builder.append("\",");
                         builder.append("\"adName\": \"");builder.append(item.getAdName());builder.append("\",");
                         builder.append("\"provinceCode\": \"");builder.append(item.getProvinceCode());builder.append("\",");
